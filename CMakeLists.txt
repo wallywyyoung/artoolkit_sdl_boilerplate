@@ -24,12 +24,7 @@ else()
     message("ERROR! GLEW NOT FOUND")
 endif()
 
-
 include_directories(${OPENGL_INCLUDE_DIRS})
-
-
-
-
 
 #file(READ "Shaders/simple.frag" SIMPLE_FRAG)
 #string(REGEX REPLACE " " "\\\\ " SIMPLE_FRAG ${SIMPLE_FRAG})
@@ -39,10 +34,10 @@ include_directories(${OPENGL_INCLUDE_DIRS})
 #add_definitions(-DSIMPLE_FRAG="\"R\(\"${SIMPLE_FRAG}\"\)\"" -DSIMPLE_VERT=${SIMPLE_VERT})
 #add_definitions(-DSIMPLE_FRAG=R\(\"${SIMPLE_FRAG}\"\))
 #add_definitions(-DSIMPLE_VERT=\"bar\")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${PLATFORM_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES
-    sdl_template.c)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} "-m32" ${PLATFORM_CXX_FLAGS} -std=c++11")
+
+set(SOURCE_FILES sdl_template.c)
 
 add_executable(ARTOOLKIT_BOILERPLATE ${SOURCE_FILES})
 
